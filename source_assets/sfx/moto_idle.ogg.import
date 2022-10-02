@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moto_idle.ogg-5bd27c7c46a0d731bd62a2fa60b49a15.oggstr"
+
+[deps]
+
+source_file="res://source_assets/sfx/moto_idle.ogg"
+dest_files=[ "res://.import/moto_idle.ogg-5bd27c7c46a0d731bd62a2fa60b49a15.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

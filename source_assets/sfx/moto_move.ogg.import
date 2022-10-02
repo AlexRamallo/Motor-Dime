@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moto_move.ogg-50a3ad5cbb71a189503760d7de839e39.oggstr"
+
+[deps]
+
+source_file="res://source_assets/sfx/moto_move.ogg"
+dest_files=[ "res://.import/moto_move.ogg-50a3ad5cbb71a189503760d7de839e39.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
