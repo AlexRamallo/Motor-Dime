@@ -9,6 +9,7 @@ var rider;
 
 var info_foot1;
 var info_foot2;
+var info_foot3;
 var info_drive;
 
 var spd_start;
@@ -27,6 +28,8 @@ func _ready():
 	assert(info_foot1 != null)
 	info_foot2 = find_node("InfoFoot2") as Sprite;
 	assert(info_foot2 != null)
+	info_foot3 = find_node("InfoFoot3") as Sprite;
+	assert(info_foot3 != null)
 	info_drive = find_node("InfoDrive") as Sprite;
 	assert(info_drive != null)
 	
@@ -63,13 +66,19 @@ func _process(delta):
 		info_drive.visible = false;
 		
 	if rider.rider_state == rider.RiderStates.ONFOOT:
+		info_foot3.visible = false;
 		if rider.can_mount:
 			info_foot2.visible = true;
 			info_foot1.visible = false;
 		else:
 			info_foot2.visible = false;
 			info_foot1.visible = true;
+	elif rider.rider_state == rider.RiderStates.RAGDOLL:
+		info_foot3.visible = true;
+		info_foot1.visible = false;
+		info_foot2.visible = false;
 	else:
+		info_foot3.visible = false;
 		info_foot2.visible = false;
 		info_foot1.visible = false;
 	

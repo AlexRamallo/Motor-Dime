@@ -24,6 +24,9 @@ var menu_wait:float = 1.0;
 func _ready():
 	Input.add_joy_mapping(luna, true);
 	
+	did_start = false;
+	menu_wait = 1.0;
+	
 	cam = find_node("Camera");
 	assert(cam != null);
 	cam.set_target($Riders/r1);
@@ -42,6 +45,8 @@ func _ready():
 
 func _process(delta):
 	if !did_start:
+		end_cam.current = false;
+		cam.current = false;
 		menu_cam.current = true;
 		if menu_wait > 0:
 			menu_wait -= delta;
@@ -54,7 +59,6 @@ func _process(delta):
 			var raceui = find_node("UI_Race") as Control;
 			assert(raceui != null);
 			raceui.visible = true;
-			
 		return;
 	else:
 		menu_cam.current = false;
