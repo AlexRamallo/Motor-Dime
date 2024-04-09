@@ -8,7 +8,7 @@ var track_node:Path;
 var lightning;
 
 export var is_conduit_active:bool;
-export var freeze_invincibility_time:float = 1.0;
+export var freeze_invincibility_time:float = 1.5;
 var freeze_detach_timer:float = 0.0;
 
 var freeze_invincibility_target:Spatial;

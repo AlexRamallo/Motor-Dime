@@ -173,6 +173,5 @@ mesh = SubResource( 9 )
 visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="DBG_3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 material_override = SubResource( 10 )
 mesh = SubResource( 11 )

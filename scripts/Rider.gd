@@ -5,7 +5,7 @@ const AICtl = preload("res://scripts/AICtl.gd");
 const Conduit = preload("res://scripts/conduit.gd");
 
 var speed:float = 50.0;
-var handling:float = 0.1;
+var handling:float = 0.5;
 
 var vehicle_node:VehicleBody;
 var moto_node:Spatial;
@@ -33,7 +33,7 @@ var ctl:CtlState;
 
 var freeze_duration:float = 0;
 var freeze_origin:Vector3;
-var freeze_fall_velocity_threshold:float = 15.0;
+var freeze_fall_velocity_threshold:float = 35.0;
 var freeze_invincibility:float = 0;
 
 var can_mount:bool = false;
@@ -148,9 +148,13 @@ func _process(delta):
 			moto_anim.current_animation = "Ride";
 			rider_anim.current_animation = "Ride";
 			vehicle_node.engine_force = ctl.vFwd * speed;
-			vehicle_node.steering = ctl.vTurn * handling;
 			
 			var vel_length = vehicle_node.linear_velocity.length();
+			
+			var hfactor = clamp(1.0 - (vel_length / speed), 0.1, handling);
+			
+			vehicle_node.steering = ctl.vTurn * hfactor;
+			
 			var screech_threshold = speed * 0.1;
 			
 			if !did_screech:

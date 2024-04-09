@@ -55,7 +55,7 @@ func _physics_process(delta):
 		rider.rider_anim.current_animation = "Run";
 		movevec = lookvec * rider.ctl.vFwd;
 		movevec += rider.camera.global_transform.basis.x * rider.ctl.vTurn;
-		movevec = movevec.normalized() * -20.0;
+		movevec = movevec.normalized() * -30.0;
 		rider.rider_node.global_transform.origin = global_transform.origin;
 	else:
 		rider.rider_anim.current_animation = "StandIdle";

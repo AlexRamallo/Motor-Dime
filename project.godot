@@ -34,6 +34,12 @@ config/icon="res://icon.png"
 
 window/size/width=948
 window/size/height=533
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[global]
+
+gravity=false
 
 [gui]
 
@@ -123,6 +129,7 @@ WalkBack={
 [physics]
 
 common/enable_pause_aware_picking=true
+3d/default_gravity=18.0
 3d/default_linear_damp=0.0
 
 [rendering]

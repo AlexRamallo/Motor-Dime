@@ -16,6 +16,7 @@ var spd_start;
 var spd_end;
 var spd_safe;
 var spd_arrow;
+var spd_bar_red;
 
 func _ready():
 	timer_back = find_node("TimerBack");
@@ -41,6 +42,8 @@ func _ready():
 	assert(spd_safe != null)
 	spd_arrow = find_node("SpeedArrow") as Sprite;
 	assert(spd_arrow != null)
+	spd_bar_red = find_node("Speedbar2") as ColorRect;
+	assert(spd_bar_red != null)
 	
 	hand_rot_offset = timer_hand.rotation;
 
@@ -59,6 +62,12 @@ func _process(delta):
 	else:
 		spd_arrow.position.y = spd_start.rect_position.y - ((spd_start.rect_position.y - spd_end.rect_position.y) * speed_f);
 		spd_arrow.modulate = Color8(255, 0, 0, 255);
+	
+	if rider.freeze_invincibility > 0:
+		spd_arrow.modulate = Color8(0, 255, 255, 255);
+		spd_bar_red.modulate = Color8(0, 255, 255, 255);
+	else:
+		spd_bar_red.modulate = Color8(255, 0, 0, 255);
 	
 	if rider.rider_state == rider.RiderStates.RIDING or rider.rider_state == rider.RiderStates.SITTING:
 		info_drive.visible = true;
